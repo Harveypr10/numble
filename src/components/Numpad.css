@@ -1,0 +1,88 @@
+.numpad-grid {
+  display: flex;
+  gap: 10px;
+}
+
+.digit-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.digit-row {
+  display: flex;
+  gap: 10px;
+}
+
+.action-column {
+  display: flex;
+  flex-direction: column;
+  height: 280px; /* Matches approx. 4 rows × 60px + spacing */
+}
+
+.action-column .key.clear {
+  align-self: flex-start; /* Top alignment */
+}
+
+.action-column .key.delete {
+  margin-top: auto;       /* Push to bottom */
+}
+
+.key {
+  width: 60px;
+  height: 60px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- STATUS STYLES --- */
+
+.key.correct {
+  background-color: #4caf50; /* Green fill */
+  border: 2px solid #388e3c;
+  color: #fff;
+}
+
+.key.misplaced {
+  background-color: #fff; /* Neutral fill */
+  border: 2px solid #4caf50; /* Green border */
+  color: #000;
+}
+
+.key.absent {
+  background-color: #f44336; /* Red fill */
+  border: 2px solid #b71c1c;
+  color: #fff;
+}
+
+.key.tried {
+  background-color: #ddd; /* Neutral grey for guessed digits with no feedback */
+  color: #333;
+  border: 2px solid #aaa;
+}
+
+/* --- CONTROL BUTTONS --- */
+
+.key.enter {
+  background-color: #2196f3;
+  color: #fff;
+  border: 2px solid #1976d2;
+}
+
+.key.clear {
+  background-color: #795548;
+  color: #fff;
+  border: 2px solid #5d4037;
+}
+
+.key.delete {
+  background-color: #d32f2f;
+  color: #fff;
+  border: 2px solid #b71c1c;
+}

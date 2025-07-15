@@ -1,0 +1,322 @@
+[
+  {
+    "fullDate": "04/07/1776",
+    "d1": 0,
+    "d2": 4,
+    "m1": 0,
+    "m2": 7,
+    "y1": 7,
+    "y2": 6,
+    "description": "U.S. Declaration of Independence signed"
+  },
+  {
+    "fullDate": "12/04/1961",
+    "d1": 1,
+    "d2": 2,
+    "m1": 0,
+    "m2": 4,
+    "y1": 6,
+    "y2": 1,
+    "description": "Yuri Gagarin becomes first human in space"
+  },
+  {
+    "fullDate": "17/07/1955",
+    "d1": 1,
+    "d2": 7,
+    "m1": 0,
+    "m2": 7,
+    "y1": 5,
+    "y2": 5,
+    "description": "Disneyland opens in California"
+  },
+  {
+    "fullDate": "29/03/1973",
+    "d1": 2,
+    "d2": 9,
+    "m1": 0,
+    "m2": 3,
+    "y1": 7,
+    "y2": 3,
+    "description": "First mobile phone call made"
+  },
+  {
+    "fullDate": "25/05/1977",
+    "d1": 2,
+    "d2": 5,
+    "m1": 0,
+    "m2": 5,
+    "y1": 7,
+    "y2": 7,
+    "description": "Star Wars premieres in theaters"
+  },
+  {
+    "fullDate": "21/04/1989",
+    "d1": 2,
+    "d2": 1,
+    "m1": 0,
+    "m2": 4,
+    "y1": 8,
+    "y2": 9,
+    "description": "Game Boy released in Japan"
+  },
+  {
+    "fullDate": "24/04/1990",
+    "d1": 2,
+    "d2": 4,
+    "m1": 0,
+    "m2": 4,
+    "y1": 9,
+    "y2": 0,
+    "description": "Hubble Space Telescope launched"
+  },
+  {
+    "fullDate": "22/02/1837",
+    "d1": 2,
+    "d2": 2,
+    "m1": 0,
+    "m2": 2,
+    "y1": 3,
+    "y2": 7,
+    "description": "First electric telegraph demonstrated"
+  },
+  {
+    "fullDate": "10/12/1836",
+    "d1": 1,
+    "d2": 0,
+    "m1": 1,
+    "m2": 2,
+    "y1": 3,
+    "y2": 6,
+    "description": "First coin-operated vending machine patented"
+  },
+  {
+    "fullDate": "14/02/1789",
+    "d1": 1,
+    "d2": 4,
+    "m1": 0,
+    "m2": 2,
+    "y1": 8,
+    "y2": 9,
+    "description": "First U.S. presidential election held"
+  },
+  {
+    "fullDate": "18/08/1858",
+    "d1": 1,
+    "d2": 8,
+    "m1": 0,
+    "m2": 8,
+    "y1": 5,
+    "y2": 8,
+    "description": "First transatlantic telegraph cable completed"
+  },
+  {
+    "fullDate": "05/05/1852",
+    "d1": 0,
+    "d2": 5,
+    "m1": 0,
+    "m2": 5,
+    "y1": 5,
+    "y2": 2,
+    "description": "First passenger elevator installed"
+  },
+  {
+    "fullDate": "08/06/1854",
+    "d1": 0,
+    "d2": 8,
+    "m1": 0,
+    "m2": 6,
+    "y1": 5,
+    "y2": 4,
+    "description": "First street lighting using gas in U.S."
+  },
+  {
+    "fullDate": "15/07/1856",
+    "d1": 1,
+    "d2": 5,
+    "m1": 0,
+    "m2": 7,
+    "y1": 5,
+    "y2": 6,
+    "description": "First chocolate bar produced"
+  },
+  {
+    "fullDate": "21/09/1860",
+    "d1": 2,
+    "d2": 1,
+    "m1": 0,
+    "m2": 9,
+    "y1": 6,
+    "y2": 0,
+    "description": "First weather forecast published"
+  },
+  {
+    "fullDate": "04/03/1864",
+    "d1": 0,
+    "d2": 4,
+    "m1": 0,
+    "m2": 3,
+    "y1": 6,
+    "y2": 4,
+    "description": "First typewriter marketed"
+  },
+  {
+    "fullDate": "08/05/1868",
+    "d1": 0,
+    "d2": 8,
+    "m1": 0,
+    "m2": 5,
+    "y1": 6,
+    "y2": 8,
+    "description": "First traffic light installed in London"
+  },
+  {
+    "fullDate": "10/06/1870",
+    "d1": 1,
+    "d2": 0,
+    "m1": 0,
+    "m2": 6,
+    "y1": 7,
+    "y2": 0,
+    "description": "First postcards issued in U.K."
+  },
+  {
+    "fullDate": "14/08/1874",
+    "d1": 1,
+    "d2": 4,
+    "m1": 0,
+    "m2": 8,
+    "y1": 7,
+    "y2": 4,
+    "description": "First telephone patent filed"
+  },
+  {
+    "fullDate": "16/09/1876",
+    "d1": 1,
+    "d2": 6,
+    "m1": 0,
+    "m2": 9,
+    "y1": 7,
+    "y2": 6,
+    "description": "First microphone invented"
+  },
+  {
+    "fullDate": "18/10/1878",
+    "d1": 1,
+    "d2": 8,
+    "m1": 1,
+    "m2": 0,
+    "y1": 7,
+    "y2": 8,
+    "description": "First electric streetlights installed"
+  },
+  {
+    "fullDate": "20/11/1880",
+    "d1": 2,
+    "d2": 0,
+    "m1": 1,
+    "m2": 1,
+    "y1": 8,
+    "y2": 0,
+    "description": "First payphone introduced"
+  },
+  {
+    "fullDate": "22/02/1882",
+    "d1": 2,
+    "d2": 2,
+    "m1": 0,
+    "m2": 2,
+    "y1": 8,
+    "y2": 2,
+    "description": "First skyscraper built in Chicago"
+  },
+  {
+    "fullDate": "24/03/1884",
+    "d1": 2,
+    "d2": 4,
+    "m1": 0,
+    "m2": 3,
+    "y1": 8,
+    "y2": 4,
+    "description": "First fountain pen patented"
+  },
+  {
+    "fullDate": "26/04/1886",
+    "d1": 2,
+    "d2": 6,
+    "m1": 0,
+    "m2": 4,
+    "y1": 8,
+    "y2": 6,
+    "description": "Statue of Liberty dedicated"
+  },
+  {
+    "fullDate": "28/05/1888",
+    "d1": 2,
+    "d2": 8,
+    "m1": 0,
+    "m2": 5,
+    "y1": 8,
+    "y2": 8,
+    "description": "First recorded use of “hello” on phone"
+  },
+  {
+    "fullDate": "30/06/1890",
+    "d1": 3,
+    "d2": 0,
+    "m1": 0,
+    "m2": 6,
+    "y1": 9,
+    "y2": 0,
+    "description": "First electric subway opens in London"
+  },
+  {
+    "fullDate": "02/07/1892",
+    "d1": 0,
+    "d2": 2,
+    "m1": 0,
+    "m2": 7,
+    "y1": 9,
+    "y2": 2,
+    "description": "First fingerprint used for identification"
+  },
+  {
+    "fullDate": "04/08/1894",
+    "d1": 0,
+    "d2": 4,
+    "m1": 0,
+    "m2": 8,
+    "y1": 9,
+    "y2": 4,
+    "description": "First motion picture camera patented"
+  },
+  {
+    "fullDate": "06/09/1896",
+    "d1": 0,
+    "d2": 6,
+    "m1": 0,
+    "m2": 9,
+    "y1": 9,
+    "y2": 6,
+    "description": "First modern Olympic Games held"
+  },
+  {
+    "fullDate": "08/01/1898",
+    "d1": 0,
+    "d2": 8,
+    "m1": 0,
+    "m2": 1,
+    "y1": 9,
+    "y2": 8,
+    "description": "First radio signal sent across English Channel"
+  },
+  {
+    "fullDate": "10/02/1899",
+    "d1": 1,
+    "d2": 0,
+    "m1": 0,
+    "m2": 2,
+    "y1": 9,
+    "y2": 9,
+    "description": "First motor bus service begins"
+  }
+]
