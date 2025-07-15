@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Numble/static/css/main.71f9af1d.css",
-    "main.js": "/Numble/static/js/main.dc07275b.js",
-    "index.html": "/Numble/index.html",
-    "main.71f9af1d.css.map": "/Numble/static/css/main.71f9af1d.css.map",
-    "main.dc07275b.js.map": "/Numble/static/js/main.dc07275b.js.map"
+    "main.css": "/numble/static/css/main.71f9af1d.css",
+    "main.js": "/numble/static/js/main.dc07275b.js",
+    "index.html": "/numble/index.html",
+    "main.71f9af1d.css.map": "/numble/static/css/main.71f9af1d.css.map",
+    "main.dc07275b.js.map": "/numble/static/js/main.dc07275b.js.map"
   },
   "entrypoints": [
     "static/css/main.71f9af1d.css",
