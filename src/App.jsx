@@ -7,28 +7,36 @@ function App() {
   const [targetDigits, setTargetDigits] = useState([]);
   const [fullDate, setFullDate] = useState('');
   const [description, setDescription] = useState('');
-  const [showResult, setShowResult] = useState(false); // new state
+  const [showResult, setShowResult] = useState(false);
 
   const startNewGame = () => {
     const puzzle = getRandomPuzzle();
     setTargetDigits(puzzle.digits);
     setFullDate(puzzle.fullDate);
     setDescription(puzzle.description);
-    setShowResult(false); // reset on new game
+    setShowResult(false);
     console.log('Puzzle updated in App.jsx:', puzzle);
   };
 
   useEffect(() => {
-    startNewGame(); // Load initial puzzle
+    startNewGame();
   }, []);
 
   return (
-    <div className="App">
-      <h1>🧠 Numble</h1>
-      <p>Guess the 6-digit sequence from a famous historical date!</p>
+    <div className="app-container">
+      <div className="header">
+        <h1 className="title">Elementle</h1>
+<img
+  src="/numble/HammieLogo.png"
+  alt="Hammie the Hamster"
+  className="hammie-logo"
+/>
+      </div>
 
-      {/* REMOVE Target Digits from screen */}
-      {/* Metadata revealed only when puzzle is complete */}
+      <p className="subtitle">
+        Hammie the hamster powered history-math game
+      </p>
+
       {showResult && (
         <div className="event-reveal">
           <h3>{fullDate}</h3>
@@ -43,7 +51,7 @@ function App() {
         startNewGame={startNewGame}
         fullDate={fullDate}
         description={description}
-        onComplete={() => setShowResult(true)} // notify App when done
+        onComplete={() => setShowResult(true)}
       />
     </div>
   );

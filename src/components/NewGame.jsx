@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import DigitInputRow from './DigitInputRow';
-import Numpad from './Numpad';
 import './NewGame.css';
 
 export default function NewGame({ digits, startNewGame, fullDate, description }) {
@@ -9,19 +8,26 @@ export default function NewGame({ digits, startNewGame, fullDate, description })
   const [feedbacks, setFeedbacks] = useState(Array(maxGuesses).fill([]));
   const [activeRow, setActiveRow] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  const [digitStatusMap, setDigitStatusMap] = useState({});
+
+  const statusPriority = (status) => {
+    if (status === 'correct') return 3;
+    if (status === 'misplaced') return 2;
+    if (status === 'absent') return 1;
+    return 0;
+  };
 
   useEffect(() => {
-    // Reset game on new puzzle
     setGuesses(Array(maxGuesses).fill([]));
     setFeedbacks(Array(maxGuesses).fill([]));
     setActiveRow(0);
     setGameOver(false);
+    setDigitStatusMap({});
   }, [digits]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (gameOver) return;
-
       const key = e.key;
       if (/^[0-9]$/.test(key)) {
         if (guesses[activeRow].length < 6) {
@@ -33,7 +39,6 @@ export default function NewGame({ digits, startNewGame, fullDate, description })
         submitGuess();
       }
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [guesses, activeRow, gameOver]);
@@ -46,12 +51,21 @@ export default function NewGame({ digits, startNewGame, fullDate, description })
 
   const submitGuess = () => {
     if (guesses[activeRow].length !== 6) return;
-
     const fb = generateFeedback(guesses[activeRow], digits);
-
     setFeedbacks((prevFeedbacks) =>
       prevFeedbacks.map((row, idx) => (idx === activeRow ? fb : row))
     );
+
+    const newDigitStatusMap = { ...digitStatusMap };
+    guesses[activeRow].forEach((digit, i) => {
+      const status = fb[i].status;
+      const existing = newDigitStatusMap[digit];
+      if (!existing || statusPriority(status) > statusPriority(existing)) {
+        newDigitStatusMap[digit] = status;
+      }
+    });
+    setDigitStatusMap(newDigitStatusMap);
+    console.log('Updated digitStatusMap:', newDigitStatusMap);
 
     const isCorrect = fb.every((f) => f.status === 'correct');
     if (isCorrect || activeRow === maxGuesses - 1) {
@@ -61,30 +75,19 @@ export default function NewGame({ digits, startNewGame, fullDate, description })
     }
   };
 
-const generateFeedback = (guessArr, targetArr) => {
-  return guessArr.map((digit, index) => {
-    const targetDigit = targetArr[index];
-
-    if (digit === targetDigit) {
-      return { status: 'correct' }; // No arrow needed for correct digits
-    }
-
-    // Determine direction compared to correct digit at this index
-    const direction = digit < targetDigit ? 'up' : 'down';
-
-    if (!targetArr.includes(digit)) {
-      return { status: 'absent', direction }; // ⬅️ Now includes arrow!
-    }
-
-    return { status: 'misplaced', direction };
-  });
-};
+  const generateFeedback = (guessArr, targetArr) => {
+    return guessArr.map((digit, index) => {
+      const targetDigit = targetArr[index];
+      if (digit === targetDigit) return { status: 'correct' };
+      const direction = digit < targetDigit ? 'up' : 'down';
+      if (!targetArr.includes(digit)) return { status: 'absent', direction };
+      return { status: 'misplaced', direction };
+    });
+  };
 
   const handleDigitInput = (digit) => {
-    if (gameOver) return;
-    if (guesses[activeRow].length < 6) {
-      updateGuess([...guesses[activeRow], digit]);
-    }
+    if (gameOver || guesses[activeRow].length >= 6) return;
+    updateGuess([...guesses[activeRow], digit]);
   };
 
   const handleDelete = () => {
@@ -99,53 +102,79 @@ const generateFeedback = (guessArr, targetArr) => {
 
   return (
     <div className="numble-game">
-      <button onClick={startNewGame} style={{ marginBottom: '1em' }}>
-        🔄 Start New Puzzle
-      </button>
-
       {guesses.map((guess, index) => (
         <DigitInputRow
           key={index}
           guess={guess}
           feedback={feedbacks[index]}
-          targetDigits={digits} // 👈 Ensure this is passed for arrow logic
+          targetDigits={digits}
         />
       ))}
 
-<div
-  className="clue-box"
-  style={{
-    margin: '1em 0',
-    padding: '0.5em',
-    background: '#f5f5f5',
-    borderRadius: '6px',
-  }}
->
-  {/* Only show after puzzle ends */}
-  {gameOver && (
-    <>
-      <p><strong>Date:</strong> {fullDate}</p>
-      <p><strong>Event:</strong> {description}</p>
-      <p style={{ color: 'green', fontWeight: 'bold', marginTop: '0.5em' }}>
-        {feedbacks[activeRow].every((f) => f.status === 'correct')
-          ? '🎉 Correct! You solved it.'
-          : '🛑 Out of guesses — try another puzzle!'}
-      </p>
-    </>
-  )}
+<div className="numpad-grid">
+  <div className="numpad-left">
+    <div className="numpad-row">
+      {[1, 2, 3, 4, 5].map((d) => {
+        const status = digitStatusMap[d];
+        const statusClass =
+          status === 'correct'
+            ? 'correct-digit'
+            : status === 'misplaced'
+            ? 'misplaced-digit'
+            : status === 'absent'
+            ? 'absent-digit'
+            : '';
+        const className = `digit ${statusClass}`.trim();
+        return (
+          <button key={d} className={className} onClick={() => handleDigitInput(d)}>
+            {d}
+          </button>
+        );
+      })}
+    </div>
+    <div className="numpad-row">
+      {[6, 7, 8, 9, 0].map((d) => {
+        const status = digitStatusMap[d];
+        const statusClass =
+          status === 'correct'
+            ? 'correct-digit'
+            : status === 'misplaced'
+            ? 'misplaced-digit'
+            : status === 'absent'
+            ? 'absent-digit'
+            : '';
+        const className = `digit ${statusClass}`.trim();
+        return (
+          <button key={d} className={className} onClick={() => handleDigitInput(d)}>
+            {d}
+          </button>
+        );
+      })}
+    </div>
+  </div>
+
+  <div className="delete-button-wrapper">
+    <button className="del-button tall-del" onClick={handleDelete}>Del</button>
+  </div>
 </div>
 
-      <Numpad
-        onDigit={handleDigitInput}
-        onDelete={handleDelete}
-        onClear={handleClear}
-        onEnter={submitGuess}
-        guess={guesses[activeRow]}
-        feedback={feedbacks[activeRow]}
-        target={digits}
-        guesses={guesses}
-        feedbacks={feedbacks}
-      />
+      <div className="numpad-row">
+        <button className="newgame" onClick={startNewGame}>🔄 New Game</button>
+        <button className="enter" onClick={submitGuess}>Enter</button>
+        <button className="clr" onClick={handleClear}>Clr</button>
+      </div>
+
+      {gameOver && (
+        <div className="clue-box">
+          <p><strong>Date:</strong> {fullDate}</p>
+          <p><strong>Event:</strong> {description}</p>
+          <p style={{ color: 'green', fontWeight: 'bold' }}>
+            {feedbacks[activeRow].every((f) => f.status === 'correct')
+              ? '🎉 Correct! You solved it.'
+              : '🛑 Out of guesses — try another puzzle!'}
+          </p>
+        </div>
+      )}
     </div>
   );
 }
